@@ -1,7 +1,7 @@
 import streamlit as st
 
 # Título de la aplicación
-st.title("Aplicación Sencilla con Streamlit")
+st.title("Que bonita es Victoria")
 
 # Subtítulo
 st.subheader("Cargar un archivo de texto")
