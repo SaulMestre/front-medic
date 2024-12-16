@@ -1,22 +1,32 @@
 import streamlit as st
 
-# Título de la aplicación
-st.title("Que bonita es Victoria")
+# Funciones para diferentes vistas
+def home():
+    st.title("Página Principal")
+    st.write("Bienvenido a la página principal de la aplicación.")
 
-# Subtítulo
-st.subheader("Cargar un archivo de texto")
+def about():
+    st.title("Acerca de")
+    st.write("Esta es una aplicación sencilla creada con Streamlit.")
+    st.write("Usa el menú lateral para navegar entre páginas.")
 
-# Widget para subir un archivo
-uploaded_file = st.file_uploader("Selecciona un archivo de texto", type=["txt"])
+def contact():
+    st.title("Contacto")
+    st.write("¡Gracias por visitarnos! Aquí puedes dejarnos un mensaje.")
+    name = st.text_input("Tu nombre:")
+    message = st.text_area("Tu mensaje:")
+    if st.button("Enviar"):
+        st.success("¡Gracias por tu mensaje!")
 
-if uploaded_file is not None:
-    # Mostrar el contenido del archivo
-    st.write("Contenido del archivo:")
-    content = uploaded_file.read().decode("utf-8")
-    st.text_area("Contenido", content, height=300)
-else:
-    st.write("No se ha subido ningún archivo todavía.")
+# Menú de navegación
+st.sidebar.title("Navegación")
+page = st.sidebar.radio("Ir a", ["Página Principal", "Acerca de", "Contacto"])
 
-# Footer
-st.sidebar.title("Opciones")
-st.sidebar.write("Esta es una barra lateral con texto adicional.")
+# Mostrar la vista seleccionada
+if page == "Página Principal":
+    home()
+elif page == "Acerca de":
+    about()
+elif page == "Contacto":
+    contact()
+
