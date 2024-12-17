@@ -1,0 +1,4 @@
+streamlit
+joblib
+scikit-learn  # Ejemplo si usas modelos de scikit-learn
+pandas        # Si trabajas con Pandas
