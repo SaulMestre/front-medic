@@ -1,9 +1,10 @@
 import streamlit as st
+from prediction import prediction_page
 
 # Funciones para diferentes vistas
 def home():
-    st.title("Página Principal")
-    st.write("Bienvenido a la página principal de la aplicación.")
+# Mostrar la imagen
+    st.image("imagen_logo.png")
 
 def about():
     st.title("Acerca de")
@@ -20,13 +21,12 @@ def contact():
 
 # Menú de navegación
 st.sidebar.title("Navegación")
-page = st.sidebar.radio("Ir a", ["Página Principal", "Acerca de", "Contacto"])
+page = st.sidebar.radio("Ir a", ["Página Principal", "Prediction"])
 
 # Mostrar la vista seleccionada
 if page == "Página Principal":
     home()
-elif page == "Acerca de":
-    about()
-elif page == "Contacto":
-    contact()
+elif page == "Prediction":
+    prediction_page()
+
 
